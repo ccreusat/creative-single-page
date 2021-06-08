@@ -1,0 +1,25 @@
+@import "../mixins/pxToRem";
+@import "../mixins/flex";
+
+.nav {
+	display: none;
+
+	> * {
+		&:not(:first-child) {
+			margin-left: 32px;
+		}
+	}
+
+	&__link {
+		color: var(--color-white);
+		@include pxToRem("font-size", 16);
+
+		&:hover {
+			font-weight: 700;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		@include flex();
+	}
+}
