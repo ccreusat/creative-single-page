@@ -21,10 +21,11 @@
   --color-button-primary-hover: hsl(0, 100%, 79%);
   --color-button-secondary-hover: hsl(240, 12%, 30%);
   --padding-24: 1.33rem;
+  --ff-base: 18px;
 }
 
 html {
-  font-size: 18px;
+  font-size: var(--ff-base);
 }
 
 body {
@@ -149,21 +150,50 @@ p {
 .nav {
   display: none;
 }
-.nav > *:not(:first-child) {
-  margin-left: 32px;
-}
 .nav__link {
+  display: block;
   color: var(--color-white);
-  font-size: 0.8888888889rem;
+  font-size: 1rem;
 }
 .nav__link:hover {
   font-weight: 700;
+}
+@media only screen and (max-width: 767px) {
+  .nav {
+    padding: 30px;
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    right: 1rem;
+    width: 250px;
+    height: 290px;
+    text-align: center;
+    background-color: var(--color-bg-black);
+  }
+  .nav .button--smaller {
+    padding: 16px 24px;
+  }
+  .nav > *:not(:first-child) {
+    margin-top: 24px;
+  }
 }
 @media only screen and (min-width: 768px) {
   .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .nav > *:not(:first-child) {
+    margin-left: 32px;
+  }
+  .nav__link {
+    font-size: 0.8888888889rem;
+  }
+  .nav .button {
+    background-color: var(--color-bg-black);
+  }
+  .nav .button:hover {
+    background-color: var(--color-button-secondary-hover);
   }
 }
 
@@ -180,7 +210,7 @@ p {
 .page-hero__content {
   padding: 3.11rem var(--padding-24) 5rem;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 480px) {
   .page-hero {
     height: 606px;
   }
@@ -233,7 +263,34 @@ p {
   display: table;
 }
 
+.toggle {
+  cursor: pointer;
+}
+.toggle .icon {
+  display: block;
+  width: 24px;
+  height: 18px;
+  background: url(../../../assets/mobile/icon-hamburger.svg);
+}
+@media only screen and (min-width: 768px) {
+  .toggle {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .dropdown {
+    display: block;
+  }
+  .dropdown ~ .toggle > .icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../../../assets/mobile/icon-cross.svg);
+  }
+}
 .header {
+  position: relative;
   padding: 2.22rem var(--padding-24);
   /* @media only screen and (min-width: 1110px) {
   	& {
@@ -291,6 +348,16 @@ p {
     position: relative;
     padding: 6.66rem 0;
   }
+  .footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer .button {
+    flex-basis: 20%;
+  }
+}
+@media only screen and (min-width: 1300px) {
   .footer::before {
     content: "";
     position: absolute;
@@ -301,35 +368,8 @@ p {
     background-image: url(../../assets/desktop/bg-pattern-wave-red.svg);
     background-repeat: no-repeat;
   }
-  .footer .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .footer .button {
-    flex-basis: 20%;
-  }
 }
 
-.strategy {
-  /* @media only screen and (min-width: 1110px) {
-  	&__top {
-  		grid-template-columns: 51% 49%;
-  		grid-template-rows: minmax(auto, 984px);
-  	}
-
-  	&__title {
-  		padding: 8.33rem;
-  		background-color: var(--color-bg-black);
-  		&::before {
-  			left: -12rem;
-  			top: 1rem;
-  			width: 135px;
-  			height: 61px;
-  		}
-  	}
-  } */
-}
 .strategy__content {
   padding: 3.88rem var(--padding-24);
   background-color: var(--color-bg-black);
@@ -457,34 +497,17 @@ p {
 }
 @media only screen and (min-width: 1110px) {
   .approach {
-    /* &__bottom {
-    	display: grid;
-    	grid-template-columns: 2fr 1fr;
-    } */
-    /* &__brand {
-    	padding: 200px 0 200px 65px;
-    	max-width: 540px;
-    	left: 8rem;
-    	position: relative;
-    } */
-    /* &__list {
-    	margin-top: -200px;
-    	padding: 11.11rem 5.88rem 11.11rem 15rem;
-    	width: 895px;
-    } */
-  }
-  .approach {
     margin-top: -11.15rem;
     padding-top: 200px;
     padding-bottom: 200px;
     padding-left: 15%;
     width: 60%;
-    min-width: 895px;
+    max-width: 70%;
   }
   .approach__brand {
     max-width: 480px;
     top: 22.22rem;
-    left: -30rem;
+    left: -55%;
   }
   .approach__list {
     margin-top: 0;

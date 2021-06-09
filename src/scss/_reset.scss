@@ -26,12 +26,12 @@
 	--color-button-secondary-hover: hsl(240, 12%, 30%);
 
 	--padding-24: 1.33rem;
+
+	--ff-base: 18px;
 }
 
-$font-base: 18px;
-
 html {
-	font-size: $font-base;
+	font-size: var(--ff-base);
 }
 
 body {

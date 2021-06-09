@@ -29,6 +29,16 @@
 		position: relative;
 		padding: 6.66rem 0;
 
+		.container {
+			@include flex();
+		}
+
+		.button {
+			flex-basis: 20%;
+		}
+	}
+
+	@media only screen and (min-width: 1300px) {
 		&::before {
 			content: "";
 			position: absolute;
@@ -38,14 +48,6 @@
 			height: 61px;
 			background-image: url(../../assets/desktop/bg-pattern-wave-red.svg);
 			background-repeat: no-repeat;
-		}
-
-		.container {
-			@include flex();
-		}
-
-		.button {
-			flex-basis: 20%;
 		}
 	}
 }
