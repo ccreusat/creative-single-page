@@ -60,8 +60,22 @@
 		}
 
 		&__content {
+			position: relative;
 			@include flex();
 			max-height: 43.55rem;
+
+			&::before {
+				content: "";
+				position: absolute;
+
+				left: -4rem;
+				top: 12rem;
+				width: 135px;
+				height: 61px;
+				background-image: url(../../assets/desktop/bg-pattern-wave-red.svg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+			}
 		}
 
 		&__body {
@@ -72,10 +86,7 @@
 		&__title {
 			max-width: inherit;
 			&::before {
-				left: -11rem;
-				top: 1rem;
-				width: 135px;
-				height: 61px;
+				display: none;
 			}
 		}
 	}
