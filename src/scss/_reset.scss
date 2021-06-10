@@ -71,7 +71,11 @@ h2 {
 }
 
 h3 {
-	@include pxToRem("font-size", 20);
+	@include pxToRem("font-size", 15);
+
+	@media only screen and (min-width: 768px) {
+		@include pxToRem("font-size", 20);
+	}
 }
 
 a {
